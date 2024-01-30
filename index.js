@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.port;
+const PORT = process.env.serverport;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,7 +20,8 @@ app.post('/send-email', (req, res) => {
     const checkbox = req.body.checkbox;
 
     const transporter = nodemailer.createTransport({
-        service: process.env.service,
+        host: process.env.host,
+        port: process.env.port,
         auth: {
             user: process.env.user,
             pass: process.env.pass
@@ -33,9 +34,9 @@ app.post('/send-email', (req, res) => {
         subject: 'Neue Meldung über das Meldeformular der AntidiskriminierungsAPP',
         text: `
         Folgende Informationen wurden in das Formular eingegeben:
-        Mitgliedergruppe = ${mitgliedergruppe}
-        Nachricht = ${message}
-        Kategorie = ${category}
+        Mitgliedergruppe: ${mitgliedergruppe}
+        Nachricht: ${message}
+        Kategorie: ${category}
         Nachname: ${lastname}
         Vorname: ${firstname}
         e-Mail: ${email}
