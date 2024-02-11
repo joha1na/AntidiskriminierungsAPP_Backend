@@ -39,8 +39,8 @@ app.post('/send-email', (req, res) => {
         Kategorie: ${category}
         Nachname: ${lastname}
         Vorname: ${firstname}
-        e-Mail: ${email}
-        Checkbox: ${checkbox}
+        E-Mail: ${email}
+        Zustimmung zur Datenverarbeitung: ${checkbox}
     `
     };
 
