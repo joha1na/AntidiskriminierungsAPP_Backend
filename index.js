@@ -12,12 +12,14 @@ app.use(cors());
 
 app.post('/send-email', (req, res) => {
     const mitgliedergruppe = req.body.mitgliedergruppe;
+    const betroffenheit = req.body.betroffenheit;
     const message = req.body.message;
     const category = req.body.category;
     const lastname = req.body.lastname;
     const firstname = req.body.firstname;
     const email = req.body.email;
     const checkbox = req.body.checkbox;
+    const formulartyp = req.body.formulartyp;
 
     const transporter = nodemailer.createTransport({
         host: process.env.host,
@@ -31,10 +33,11 @@ app.post('/send-email', (req, res) => {
     const mailOptions = {
         from: process.env.from,
         to: process.env.to,
-        subject: 'Neue Meldung über das Meldeformular der AntidiskriminierungsAPP',
+        subject: `Neue Nachricht über das ${formulartyp} der AntidiskriminierungsAPP`,
         text: `
-        Folgende Informationen wurden in das Formular eingegeben:
+        Folgende Informationen wurden in das ${formulartyp} eingegeben:
         Mitgliedergruppe: ${mitgliedergruppe}
+        Betroffenheit: ${betroffenheit}
         Nachricht: ${message}
         Kategorie: ${category}
         Nachname: ${lastname}
