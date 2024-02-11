@@ -47,10 +47,10 @@ app.post('/send-email', (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log(error);
-            res.status(500).send('Error sending email');
+            res.status(500).send();
         } else {
-            console.log('Email sent:', info.response);
-            res.status(200).send('Email sent successfully');
+            console.log(info.response);
+            res.status(200).send();
         }
     });
 });
