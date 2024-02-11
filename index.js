@@ -33,7 +33,7 @@ app.post('/send-email', (req, res) => {
     const mailOptions = {
         from: process.env.from,
         to: process.env.to,
-        subject: `Neue Meldung über das ${formulartyp} der AntidiskriminierungsAPP`,
+        subject: `Neue Nachricht über das ${formulartyp} der AntidiskriminierungsAPP`,
         text: `
         Folgende Informationen wurden in das ${formulartyp} eingegeben:
         Mitgliedergruppe: ${mitgliedergruppe}
