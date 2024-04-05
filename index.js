@@ -10,7 +10,7 @@ const PORT = process.env.serverport;
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/send-email', (req, res) => {
+app.post('', (req, res) => {
     const mitgliedergruppe = req.body.mitgliedergruppe;
     const betroffenheit = req.body.betroffenheit;
     const message = req.body.message;
