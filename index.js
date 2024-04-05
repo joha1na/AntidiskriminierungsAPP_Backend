@@ -114,10 +114,8 @@ app.post('/send-email', (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.log(error);
             res.status(500).send();
         } else {
-            console.log(info.response);
             res.status(200).send();
         }
     });
@@ -125,8 +123,6 @@ app.post('/send-email', (req, res) => {
 
 app.listen(PORT, (error) => {
     if (error) {
-        console.log(error);
     } else {
-        console.log(`Server startet and listening at http://localhost:${PORT}`);
     } 
 });
